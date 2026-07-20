@@ -1,0 +1,78 @@
+{
+  "version": 3,
+  "chapters": [
+    {
+      "id": "fundamentals",
+      "title": "Start here: ideas and bits",
+      "summary": "See what a computer is doing in plain language, then play with on and off as numbers and a row of bits. No code yet, just motion and cause and effect.",
+      "connection": "Strong intro courses start with how you break a problem into steps and what it means for a machine to remember values. We skip syntax on purpose so those habits land before the keyboard gets noisy.",
+      "lessonIds": ["fundamentals-start"]
+    },
+    {
+      "id": "foundations",
+      "title": "From gates to fetch",
+      "summary": "Wire real logic, chain it into addition, then watch a tiny CPU pull an instruction apart. Each step answers why the next one exists.",
+      "connection": "This is the same story MIT tells when it moves from Boolean logic up to a real instruction set. When you have seen gates and fetch in miniature, memory, caches, and compilers later feel like upgrades to a story you already know.",
+      "lessonIds": ["foundations-golden-path"]
+    },
+    {
+      "id": "networks",
+      "title": "Cables and the planet",
+      "summary": "Lay links on a map and place a data centre. Distance and cost show up visually, so “where work runs” stops being a vague cloud metaphor.",
+      "connection": "Systems courses ask you to reason about latency, failure, and where state lives. A map makes the tradeoffs obvious before you meet routing tables and TCP in depth.",
+      "lessonIds": ["world-cables"]
+    },
+    {
+      "id": "ai",
+      "title": "Neural intuition",
+      "summary": "Play with attention between toy words, then contrast training weights with answering a prompt. Honest scope: gut feeling first, equations later.",
+      "connection": "Modern ML sits on linear algebra and probability, but you still deserve a concrete picture of what training changes versus what inference reuses. This track is that picture.",
+      "lessonIds": ["llm-intuition"]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "fundamentals-start",
+      "chapterId": "fundamentals",
+      "title": "Computers, binary, and a byte on a wire",
+      "description": "Tap the diagram, flip switches, and watch a byte travel. Short notes appear next to what you touch so jargon never runs ahead of the picture.",
+      "connection": "Later, when someone says “memory” or “instruction,” you will picture signals moving and storage holding patterns. That image is the payoff of this lesson.",
+      "steps": [
+        { "id": "fund-io", "title": "What is a computer?", "mode": "mixed" },
+        { "id": "fund-binary", "title": "On, off, counting", "mode": "build" },
+        { "id": "fund-wire", "title": "Bits on a wire", "mode": "observe" }
+      ]
+    },
+    {
+      "id": "foundations-golden-path",
+      "chapterId": "foundations",
+      "title": "Logic, addition, then fetch",
+      "description": "You drive inputs, watch lines light up, then open a toy CPU on fetch and decode. Saves live in this browser so you can leave and come back.",
+      "connection": "Real CPUs add more pipeline stages and caches, but fetch and decode never disappear. Here you learn the rhythm once, slowly enough to see it.",
+      "steps": [
+        { "id": "step-gates", "title": "Light the LED with AND", "mode": "build" },
+        { "id": "step-adder", "title": "Build a one bit full adder", "mode": "build" },
+        { "id": "step-fetch", "title": "Watch fetch and decode", "mode": "observe" }
+      ]
+    },
+    {
+      "id": "world-cables",
+      "chapterId": "networks",
+      "title": "Connect the map",
+      "description": "Click regions, string cables, drop a data centre. Geography is simplified; the feeling of linking places is not.",
+      "connection": "Distributed systems thinking starts with asking where bits live and how far they travel. This lab gives you a physical metaphor before you meet queues, replicas, and consensus.",
+      "steps": [{ "id": "map-main", "title": "World map lab", "mode": "mixed" }]
+    },
+    {
+      "id": "llm-intuition",
+      "chapterId": "ai",
+      "title": "Transformer intuition",
+      "description": "See tokens pay attention to each other, then compare long training runs with a quick answer pass. The goal is intuition, not a substitute for coursework.",
+      "connection": "Courses in statistical learning spend weeks on loss and gradients. You get a visual anchor first so those symbols have somewhere to land.",
+      "steps": [
+        { "id": "llm-attention", "title": "Attention", "mode": "observe" },
+        { "id": "llm-train-inf", "title": "Train and infer", "mode": "observe" }
+      ]
+    }
+  ]
+}
