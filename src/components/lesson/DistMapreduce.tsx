@@ -12,7 +12,7 @@ type Pair = [string, number]
 type Phase = 'idle' | 'map' | 'shuffle' | 'reduce' | 'done'
 
 function mapDoc(doc: string): Pair[] {
-  return doc.split(' ').map((w) => [w, 1])
+  return doc.split(' ').map((w): Pair => [w, 1])
 }
 
 function shufflePairs(pairs: Pair[]): Record<string, number[]> {
@@ -25,8 +25,9 @@ function shufflePairs(pairs: Pair[]): Record<string, number[]> {
 }
 
 function reducePairs(groups: Record<string, number[]>): Pair[] {
-  return Object.entries(groups).map(([word, counts]) => [word, counts.reduce((a, b) => a + b, 0)])
-    .sort((a, b) => (b[1] as number) - (a[1] as number))
+  return Object.entries(groups)
+    .map(([word, counts]): Pair => [word, counts.reduce((a, b) => a + b, 0)])
+    .sort((a, b) => b[1] - a[1])
 }
 
 export function DistMapreduce({ onComplete }: { onComplete: () => void }) {

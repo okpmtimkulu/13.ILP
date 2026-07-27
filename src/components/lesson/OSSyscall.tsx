@@ -29,14 +29,17 @@ export function OSSyscall({ onComplete }: { onComplete: () => void }) {
 
   useEffect(() => {
     if (!running) return
-    if (phaseIdx >= PHASES.length - 1) {
-      setRunning(false)
-      const newCount = cycleCount + 1
-      setCycleCount(newCount)
-      if (newCount >= 2) setShowCard(true)
-      return
-    }
-    const t = setTimeout(() => setPhaseIdx((i) => i + 1), 1100)
+    const finished = phaseIdx >= PHASES.length - 1
+    const t = setTimeout(() => {
+      if (finished) {
+        setRunning(false)
+        const newCount = cycleCount + 1
+        setCycleCount(newCount)
+        if (newCount >= 2) setShowCard(true)
+        return
+      }
+      setPhaseIdx((i) => i + 1)
+    }, finished ? 0 : 1100)
     return () => clearTimeout(t)
   }, [running, phaseIdx, cycleCount])
 

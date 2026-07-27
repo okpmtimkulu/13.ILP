@@ -28,7 +28,7 @@ export function NsPorts({ onComplete }: Props) {
   const [done, setDone] = useState(false)
 
   const handleConnect = (port: number) => {
-    const ephemeral = 49152 + Math.floor(Math.random() * 16383)
+    const ephemeral = 49152 + ((port * 97 + visitedPorts.size * 4099) % 16383)
     setSelectedPort(port)
     setClientPort(ephemeral)
     setVisitedPorts((prev) => {
@@ -51,7 +51,7 @@ export function NsPorts({ onComplete }: Props) {
         </p>
         <p>
           Well-known ports (0–1023) are reserved for standard services. The client uses an
-          <strong> ephemeral port</strong> (49152–65535) chosen at random for the return traffic.
+          <strong> ephemeral port</strong> (49152–65535) selected for the return traffic.
         </p>
       </div>
 

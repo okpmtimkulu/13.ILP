@@ -29,6 +29,7 @@ type ButtonType = (typeof BUTTON_TYPES)[number]
 export function SwePatterns({ onComplete }: { onComplete: () => void }) {
   const [tab, setTab] = useState<Tab>('observer')
   const [seen, setSeen] = useState<Set<Tab>>(new Set(['observer']))
+  const [done, setDone] = useState(false)
 
   // Observer
   const [connectedSubs, setConnectedSubs] = useState<Set<string>>(new Set())

@@ -79,7 +79,7 @@ export function EthPrivacy({ onComplete }: { onComplete: () => void }) {
             <tbody>
               {RAW_DATA.map((r) => (
                 <tr key={r.id}>
-                  <td>{applied === 'pseudonymize' ? hashName(r.name) : r.id}</td>
+                  <td>{r.id}</td>
                   <td>{r.location}</td>
                   <td>{r.age}</td>
                 </tr>
@@ -97,7 +97,7 @@ export function EthPrivacy({ onComplete }: { onComplete: () => void }) {
       email: applied === 'pseudonymize' ? hashEmail(r.email) : r.email,
       location: r.location,
       age: applied === 'dp' ? parseFloat((r.age + (Math.random() - 0.5) * 4).toFixed(1)) : r.age,
-      purchases: applied === 'minimize' ? '[redacted]' : r.purchases,
+      purchases: r.purchases,
     }))
 
     return (
