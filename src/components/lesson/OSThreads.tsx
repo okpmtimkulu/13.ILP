@@ -21,8 +21,8 @@ export function OSThreads({ onComplete }: { onComplete: () => void }) {
     setCounter((c) => {
       const newVal = c + 1
       setLog((l) => [
-        { thread: 'T1', op: `read(${c})`, value: c },
-        { thread: 'T1', op: `write(${newVal})`, value: newVal },
+        { thread: 'T1' as const, op: `read(${c})`, value: c },
+        { thread: 'T1' as const, op: `write(${newVal})`, value: newVal },
         ...l,
       ].slice(0, 12))
       setExpected((e) => e + 1)
@@ -34,8 +34,8 @@ export function OSThreads({ onComplete }: { onComplete: () => void }) {
     setCounter((c) => {
       const newVal = c + 1
       setLog((l) => [
-        { thread: 'T2', op: `read(${c})`, value: c },
-        { thread: 'T2', op: `write(${newVal})`, value: newVal },
+        { thread: 'T2' as const, op: `read(${c})`, value: c },
+        { thread: 'T2' as const, op: `write(${newVal})`, value: newVal },
         ...l,
       ].slice(0, 12))
       setExpected((e) => e + 1)

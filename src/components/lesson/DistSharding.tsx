@@ -49,7 +49,7 @@ export function DistSharding({ onComplete }: { onComplete: () => void }) {
     return getShardByHash(user.id)
   }
 
-  const shards: typeof SAMPLE_USERS[][] = [[], [], [], []]
+  const shards: Array<Array<(typeof SAMPLE_USERS)[number]>> = [[], [], [], []]
   for (const u of SAMPLE_USERS) {
     shards[getShard(u)].push(u)
   }

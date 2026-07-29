@@ -38,8 +38,8 @@ export function NsNAT({ onComplete }: Props) {
   const sendRequest = (hostIdx: number) => {
     const host = HOSTS[hostIdx]
     const dest = DEST_SERVERS[hostIdx % DEST_SERVERS.length]
-    const srcPort = 50000 + Math.floor(Math.random() * 10000)
-    const pubPort = 40000 + natTable.length + Math.floor(Math.random() * 100)
+    const srcPort = 50000 + hostIdx * 1000 + natTable.length
+    const pubPort = 40000 + hostIdx * 100 + natTable.length
 
     const entry: NatEntry = {
       privateIp: host.ip,

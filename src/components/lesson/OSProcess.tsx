@@ -46,7 +46,7 @@ export function OSProcess({ onComplete }: { onComplete: () => void }) {
 
   const blockP2 = () => {
     setProcs((prev) => {
-      let next = prev.map((p) => {
+      const next = prev.map((p) => {
         if (p.id === 2) return { ...p, state: 'BLOCKED' as ProcState }
         if (p.id === 1) return { ...p, state: 'RUNNING' as ProcState }
         if (p.state === 'RUNNING' && p.id !== 1) return { ...p, state: 'READY' as ProcState }
